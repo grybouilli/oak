@@ -26,12 +26,22 @@
 
 #pragma once
 
+#if __cplusplus >= 202302L
+#include <expected>
+#else
+#include <oak/expected.hpp>
+namespace std
+{
+    using rd::expected;
+    using rd::unexpected;
+}
+#endif
+
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
 #include <ctime>
 #include <deque>
-#include <expected>
 #include <filesystem>
 #include <format>
 #include <fstream>
